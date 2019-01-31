@@ -1,0 +1,98 @@
+$backgroundColor: #ffffff;
+$borderColor: #999999;
+$hoverOptionBackgroundColor: #afe239;
+$hoverOptionTextColor: #000000;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+
+  .labelField {
+    margin: 5px 0 10px 0;
+    color: darkblue;
+  }
+
+  .searchCountry {
+    background-color: $backgroundColor;
+    border: 1px solid $borderColor;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    outline: none;
+
+    &:focus {
+      border-bottom: 0;
+      box-shadow: 0px 0px 5px 3px rgba(153,153,153,1);
+
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    z-index: 9999;
+    top: 40px;
+    right: 10px;
+    display: none;
+    color: #999999;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      color: #444444;
+    }
+  }
+
+  select {
+    background-color: #fafafa;
+    border: 1px solid $borderColor;
+    border-top: 0;
+    padding: 0;
+    width: 100%;
+    display: none;
+    top: -1px;
+    outline: none;
+
+    option {
+      padding: 7px;
+      height: 15px;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+
+      &:hover {
+        background-color: $hoverOptionBackgroundColor;
+        color: $hoverOptionTextColor;
+      }
+
+      &:selected {
+        background-color: forestgreen;
+        animation: moveDown 0.6s ease-in-out 0.2s backwards;
+
+        @keyframes moveDown{
+          0% {
+            transform: translateY(0px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(100px);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &:focus {
+      border: 0;
+      box-shadow: 0;
+    }
+  }
+}
